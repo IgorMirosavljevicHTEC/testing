@@ -33,6 +33,7 @@ jobs:
       run: |
         pwd
         python --version
+        date > list.txt
         pip list >> list.txt
         git config --global user.email "compy@example.com"
         git config --global user.name "compy"
