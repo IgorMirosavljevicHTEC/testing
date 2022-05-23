@@ -27,9 +27,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas colorama tabulate
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
+    - name: Some commands
       run: |
         pwd
         python --version
-        pip list
-
+        pip list > list.txt
+    - name: Create or Update Comment
+      # You may pin to the exact commit or the version.
+      # uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
+      uses: peter-evans/create-or-update-comment@v2.0.0
+      with:
+        # GITHUB_TOKEN or a repo scoped PAT.
+        token:  ${{ secrets.GH_TEST_TOKEN }}
+        # The full name of the repository in which to create or update a comment.
+        #repository: # optional
+        # The number of the issue or pull request in which to create a comment.
+        #issue-number: # optional
+        # The id of the comment to update.
+        #comment-id: # optional
+        # The comment body.
+        body: "Test comment"
+        # The mode when updating a comment, "replace" or "append".
+        #edit-mode: # optional
+        # Deprecated in favour of `reactions`
+        #reaction-type: # optional
+        # A comma separated list of reactions to add to the comment.
+        #reactions: # optional
