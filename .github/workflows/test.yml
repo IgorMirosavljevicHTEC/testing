@@ -32,6 +32,8 @@ jobs:
         pwd
         python --version
         pip list > list.txt
+        git config --global user.email "compy@example.com"
+        git config --global user.name "compy"
         git add .
         git commit -m "List push"
         git push
