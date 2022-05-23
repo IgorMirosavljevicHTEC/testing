@@ -39,6 +39,13 @@ jobs:
         git add .
         git commit -m "List push"
         git push
+    - id: get-comment-body
+      run: |
+          body="$(cat list.txt)"
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo "::set-output name=body::$body"
     - name: Create or Update Comment
       # You may pin to the exact commit or the version.
       # uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
@@ -54,8 +61,7 @@ jobs:
         # The id of the comment to update.
         #comment-id: # optional
         # The comment body.
-        body: |
-          My test comment
+        body: ${{ steps.get-comment-body.outputs.body }}
         # The mode when updating a comment, "replace" or "append".
         #edit-mode: # optional
         # Deprecated in favour of `reactions`
