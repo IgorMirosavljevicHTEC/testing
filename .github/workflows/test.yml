@@ -36,9 +36,9 @@ jobs:
         pip list >> list.txt
         git config --global user.email "compy@example.com"
         git config --global user.name "compy"
-        git add .
-        git commit -m "List update"
-        git push
+        #git add .
+        #git commit -m "List update"
+        #git push
     - id: get-comment-body
       run: |
           body="$(cat /home/runner/work/testing/testing/list.txt)"
