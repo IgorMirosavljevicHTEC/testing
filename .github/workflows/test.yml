@@ -37,11 +37,11 @@ jobs:
         git config --global user.email "compy@example.com"
         git config --global user.name "compy"
         git add .
-        git commit -m "List push"
+        git commit -m "List update"
         git push
     - id: get-comment-body
       run: |
-          body="$(cat list.txt)"
+          body="$(cat /home/runner/work/testing/testing/list.txt)"
           body="${body//'%'/'%25'}"
           body="${body//$'\n'/'%0A'}"
           body="${body//$'\r'/'%0D'}" 
