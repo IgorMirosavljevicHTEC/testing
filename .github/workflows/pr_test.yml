@@ -51,6 +51,8 @@ jobs:
             pwd
             echo $PR_ID
             echo $GITHUB_REF_NAME
+          else
+            echo 'not merged'
           fi
           
           
