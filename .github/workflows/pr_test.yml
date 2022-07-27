@@ -49,6 +49,7 @@ jobs:
           #git push –set-upstream origin main
           echo 'old env'
           echo $TEST_PATH
+          echo 'gh event:${{github.event_name}}'
           if ${{github.event_name=='pull_request'}}; then
             echo "::set-env name=TEST_PATH::{{env.TEST_PATH}}_{{env.PR_ID}}"
           fi
