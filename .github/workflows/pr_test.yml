@@ -44,7 +44,8 @@ jobs:
           #git push
           #git push origin HEAD:$GITHUB_REF_NAME
       - name: Cleanup
-        if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
+        #if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
+        if: ${{github.event.pull_request.merged==true}}
         run: |
           pwd
           echo $PR_ID
