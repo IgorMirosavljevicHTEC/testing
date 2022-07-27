@@ -51,7 +51,9 @@ jobs:
           echo $TEST_PATH
           echo 'gh event:${{github.event_name}}'
           if ${{github.event_name=='pull_request'}}; then
-            echo "::set-env name=TEST_PATH::${{env.TEST_PATH}}_${{env.PR_ID}}"
+            TMP_PATH=${{env.TEST_PATH}}_${{env.PR_ID}}
+            echo 'TMP_PATH=$TMP_PATH'
+            echo "::set-env name=TEST_PATH::${TMP_PATH}"
           fi
           echo 'new env'
           echo $TEST_PATH
