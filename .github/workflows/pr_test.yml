@@ -40,6 +40,8 @@ jobs:
           git log >> PR_test.txt
           echo 'file content'
           cat PR_test.txt
+          echo 'try gh var'
+          echo $GITHUB_SHA
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
           git add .
