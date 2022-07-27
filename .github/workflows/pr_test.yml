@@ -4,6 +4,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, closed]
   workflow_dispatch:
 env:
   PR_ID: ${{github.event.number}}
@@ -48,6 +49,7 @@ jobs:
         #if: ${{github.event.pull_request.merged==true}}
         run: |
           if ${{github.event.action=='closed' && github.event.pull_request.merged==true}}; then
+            echo 'PR closed'
             pwd
             echo $PR_ID
             echo $GITHUB_REF_NAME
