@@ -53,7 +53,8 @@ jobs:
             TMP_PATH=${{env.TEST_PATH}}_${{env.PR_ID}}
             echo 'TMP_PATH:'
             echo $TMP_PATH
-            echo "TEST_PATH2=${TMP_PATH}" >> $GITHUB_ENV
+            #echo "TEST_PATH=${TMP_PATH}" >> $GITHUB_ENV
+            echo "TEST_PATH2=$(echo $TMP_PATH)" >> $GITHUB_ENV
           fi
           echo 'new env'
           echo ${{env.TEST_PATH2}}
