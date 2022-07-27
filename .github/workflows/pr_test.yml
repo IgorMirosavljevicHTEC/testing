@@ -2,6 +2,7 @@ name: PR test
 on:
   pull_request:
     branches: [main]
+  workflow_dispatch:
 env:
   PR_ID: ${{github.event.number}}
   TEST_PATH: test_folder
