@@ -38,7 +38,7 @@ jobs:
           git add .
           git commit -m "PR_test update"
           #git push
-          #git push origin HEAD:<name-of-remote-branch>
+          git push origin HEAD:$GITHUB_REF_NAME
 
           
           
