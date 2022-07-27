@@ -53,10 +53,10 @@ jobs:
             TMP_PATH=${{env.TEST_PATH}}_${{env.PR_ID}}
             echo 'TMP_PATH:'
             echo $TMP_PATH
-            echo "TEST_PATH=${TMP_PATH}" >> $GITHUB_ENV
+            echo "TEST_PATH2=${TMP_PATH}" >> $GITHUB_ENV
           fi
           echo 'new env'
-          echo $TEST_PATH
+          echo $TEST_PATH2
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
