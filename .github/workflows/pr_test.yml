@@ -29,6 +29,7 @@ jobs:
           ls -la
           cd $GITHUB_WORKSPACE
           pwd
+          git branch
           git log >> PR_test.txt
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
