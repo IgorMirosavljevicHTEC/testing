@@ -27,6 +27,8 @@ jobs:
           pwd
           date > PR_test.txt
           ls -la
+          cd $GITHUB_WORKSPACE
+          pwd
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
           git log >> PR_test.txt
