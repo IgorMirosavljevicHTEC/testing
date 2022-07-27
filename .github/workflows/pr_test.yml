@@ -19,14 +19,14 @@ jobs:
       - name: Testing
         run: |
           pwd
-          ls
+          ls -la
           echo $PR_ID
           mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
           cd ${{env.TEST_PATH}}_${{env.PR_ID}}
           echo "inside test path"
           pwd
           date > PR_test.txt
-          ls
+          ls -la
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
           git log >> PR_test.txt
