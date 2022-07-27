@@ -44,6 +44,13 @@ jobs:
           git commit -m "PR_test update"
           #git push
           #git push origin HEAD:$GITHUB_REF_NAME
+          echo 'old env'
+          echo $TEST_PATH
+          if ${{github.event_name=='pull_request';then
+            echo "::set-env name=TEST_PATH::{{env.TEST_PATH}}_{{env.PR_ID}}
+          fi
+          echo 'new env'
+          echo $TEST_PATH
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
