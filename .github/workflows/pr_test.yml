@@ -56,7 +56,7 @@ jobs:
             echo "TEST_PATH2=${TMP_PATH}" >> $GITHUB_ENV
           fi
           echo 'new env'
-          echo $TEST_PATH2
+          echo ${{env.TEST_PATH2}}
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
