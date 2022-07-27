@@ -4,9 +4,34 @@ on:
     branches: [main]
 env:
   PR_ID: ${{github.event.number}}
+  TEST_PATH: test_folder
 
 jobs:
   test_PR:
     name: Tests PR
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+      - uses: actions/checkout@v3
+        with: 
+          token: ${{ secrets.GH_TEST_TOKEN }}
+      - name: Testing
+        run: |
+          pwd
+          echo $PR_ID
+          mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
+          cd ${{env.TEST_PATH}}_${{env.PR_ID}}
+          date > PR_test.txt
+          git config --global user.email "compy@example.com"
+          git config --global user.name "compy"
+          git log >> PR_test.txt
+          git add .
+          git commit -m "PR_test update"
+          git push
+#      - name: Cleanup
+#        if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
+#        run: |
+          
+          
+          
+          
