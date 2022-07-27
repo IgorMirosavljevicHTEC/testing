@@ -1,0 +1,12 @@
+name: PR test
+on:
+  pull_request:
+    branches: [main]
+env:
+  PR_ID: ${{github.event.number}}
+
+jobs:
+  test_PR:
+    name: Tests PR
+    runs-on: ubuntu-latest
+    steps:
