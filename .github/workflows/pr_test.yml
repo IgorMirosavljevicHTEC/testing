@@ -22,25 +22,22 @@ jobs:
           token: ${{ secrets.GH_TEST_TOKEN }}
       - name: Testing
         run: |
-          pwd
-          ls -la
-          echo $PR_ID
           mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
           cd ${{env.TEST_PATH}}_${{env.PR_ID}}
-          echo "inside test path"
-          pwd
           date > PR_test.txt
-          ls -la
           cd $GITHUB_WORKSPACE
           pwd
-          echo 'check gha branch'
+          ls -la
+          echo 'check gha ref name'
           echo $GITHUB_REF_NAME
+          echo 'check git branch'
           git branch
+          echo 'check git status'
           git status
           git log >> PR_test.txt
-          echo 'file content'
+          echo 'git log from file'
           cat PR_test.txt
-          echo 'try gh var'
+          echo 'try gh sha var'
           echo $GITHUB_SHA
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
