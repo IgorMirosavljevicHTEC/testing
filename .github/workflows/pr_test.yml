@@ -23,6 +23,8 @@ jobs:
           echo $PR_ID
           mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
           cd ${{env.TEST_PATH}}_${{env.PR_ID}}
+          echo "inside test path"
+          pwd
           date > PR_test.txt
           ls
           git config --global user.email "compy@example.com"
