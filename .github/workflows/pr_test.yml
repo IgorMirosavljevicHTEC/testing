@@ -44,11 +44,12 @@ jobs:
           git commit -m "PR_test update"
           #git push
           #git push origin HEAD:$GITHUB_REF_NAME
+          git push –set-upstream origin main
           echo 'old env'
           echo $TEST_PATH
-          if ${{github.event_name=='pull_request'}}; then
-            echo "::set-env name=TEST_PATH::{{env.TEST_PATH}}_{{env.PR_ID}}"
-          fi
+          #if ${{github.event_name=='pull_request'}}; then
+          #  echo "::set-env name=TEST_PATH::{{env.TEST_PATH}}_{{env.PR_ID}}"
+          #fi
           echo 'new env'
           echo $TEST_PATH
       - name: Cleanup
