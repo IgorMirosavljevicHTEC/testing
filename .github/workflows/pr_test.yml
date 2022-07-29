@@ -56,8 +56,8 @@ jobs:
           echo ${{env.BRANCH}}
           echo 'branch var'
           echo $BRANCH
-          if [ $GITHUB_EVENT_NAME == 'pull_request'];then
-          #if [ ${{github.event.name}}=='pull_request']; then
+          #if [ $GITHUB_EVENT_NAME == 'pull_request'];then
+          if [[ ${{github.event_name}} == 'pull_request' ]]; then
             echo 'THIS IS PR EVENT'
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           else
