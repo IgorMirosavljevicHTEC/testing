@@ -9,7 +9,9 @@ on:
 env:
   PR_ID: ${{github.event.number}}
   TEST_PATH: test_folder
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+  #ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+  BR_NAME: $GITHUB_REF_NAME
+  BR_NAME2: ${{github.ref_name}}
 
 jobs:
   test_PR:
@@ -22,6 +24,10 @@ jobs:
           token: ${{ secrets.GH_TEST_TOKEN }}
       - name: Testing
         run: |
+          echo 'BR1'
+          echo ${{ env.BR_NAME }}
+          echo 'BR2'
+          echo ${{ env.BR_NAME2 }}
           echo 'BRANCH NAME'
           echo ${GITHUB_REF##*/}
           echo 'BRANCH NAME SOURCE'
