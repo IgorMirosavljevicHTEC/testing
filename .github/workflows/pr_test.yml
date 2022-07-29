@@ -49,12 +49,14 @@ jobs:
           echo 'PR_ID'
           echo ${{env.PR_ID}}
           echo 'old env'
-          echo $TEST_PATH
+          echo ${{env.TEST_PATH}}
           echo 'gh event:${{github.event_name}}'
           if ${{github.event_name=='pull_request'}}; then
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           fi
           echo 'new env'
+          echo ${{env.TEST_PATH}}
+          echo 'TP var'
           echo $TEST_PATH
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
