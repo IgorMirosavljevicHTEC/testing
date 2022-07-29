@@ -61,7 +61,8 @@ jobs:
             echo 'THIS IS PR EVENT'
             #echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
             #echo "::set-env name=TEST_PATH::${{ env.TEST_PATH }}_${{ env.PR_ID }}"
-            echo "TEST_PATH=${{ env.TEST_PATH }}_${{ env.PR_ID }}" >> $GITHUB_ENV
+            #echo "TEST_PATH=${{ env.TEST_PATH }}_${{ env.PR_ID }}" >> $GITHUB_ENV
+            echo "TEST_PATH=yellow" >> $GITHUB_ENV
           else
             echo 'THIS IS NOT PR EVENT'
           fi
