@@ -84,6 +84,7 @@ jobs:
         run: |
           echo ${{env.TEST_PATH}}
           echo ${TEST_PATH//-$PR_ID/}
+          echo ${${{env.TEST_PATH}}//-${{env.PR_ID}}/}
             
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
