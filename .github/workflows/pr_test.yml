@@ -46,6 +46,8 @@ jobs:
           #git push
           #git push origin HEAD:$GITHUB_REF_NAME
           #git push –set-upstream origin main
+          echo 'PR_ID'
+          echo ${{env.PR_ID}}
           echo 'old env'
           echo $TEST_PATH
           echo 'gh event:${{github.event_name}}'
