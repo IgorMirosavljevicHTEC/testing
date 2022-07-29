@@ -63,6 +63,7 @@ jobs:
             #echo "::set-env name=TEST_PATH::${{ env.TEST_PATH }}_${{ env.PR_ID }}"
             #echo "TEST_PATH=${{ env.TEST_PATH }}_${{ env.PR_ID }}" >> $GITHUB_ENV
             echo "TEST_PATH=$(echo "$TEST_PATH $PR_ID")" >> $GITHUB_ENV
+            echo ${{env.TEST_PATH}}
           else
             echo 'THIS IS NOT PR EVENT'
           fi
@@ -72,6 +73,10 @@ jobs:
           echo ${{env.TEST_PATH}}
           echo 'TP var'
           echo $TEST_PATH
+      - name: Test
+        run: |
+          echo ${{env.TEST_PATH}}
+            
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
