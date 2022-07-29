@@ -25,7 +25,8 @@ jobs:
           echo 'BRANCH NAME'
           echo ${GITHUB_REF##*/}
           echo 'BRANCH NAME SOURCE'
-          echo $GIT_HEAD_REF
+          #echo $GIT_HEAD_REF
+          echo ${{github.head_ref}}
           echo 'BRANCH NAME TARGET'
           echo ${{github.base_ref}}
           mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
