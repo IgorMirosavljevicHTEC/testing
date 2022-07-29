@@ -75,17 +75,11 @@ jobs:
             #echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
             #echo "::set-env name=TEST_PATH::${{ env.TEST_PATH }}_${{ env.PR_ID }}"
             #echo "TEST_PATH=${{ env.TEST_PATH }}_${{ env.PR_ID }}" >> $GITHUB_ENV
-            echo "TEST_PATH=$(echo "$TEST_PATH $PR_ID")" >> $GITHUB_ENV
+            echo "TEST_PATH=$(echo "$TEST_PATH_$PR_ID")" >> $GITHUB_ENV
             echo ${{env.TEST_PATH}}
           else
             echo 'THIS IS NOT PR EVENT'
           fi
-          #echo "::set-env name=TEST_PATH::something_${{env.PR_ID}}"
-          echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
-          echo 'new env'
-          echo ${{env.TEST_PATH}}
-          echo 'TP var'
-          echo $TEST_PATH
       - name: Test
         run: |
           echo ${{env.TEST_PATH}}
