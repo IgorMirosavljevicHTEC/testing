@@ -55,7 +55,9 @@ jobs:
             echo 'THIS IS PR EVENT'
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           else
-            echo 'THIS IS NT PR EVENT'
+            echo 'THIS IS NOT PR EVENT'
+            echo "TEST_PATH2=${{env.TEST_PATH}}_${{env.PR_ID}}: >> $GITHUB_ENV
+            echo ${{env.TEST_PATH2}}
           fi
           echo 'new env'
           echo ${{env.TEST_PATH}}
