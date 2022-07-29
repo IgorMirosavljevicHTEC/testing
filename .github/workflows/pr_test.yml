@@ -22,6 +22,8 @@ jobs:
           token: ${{ secrets.GH_TEST_TOKEN }}
       - name: Testing
         run: |
+          echo 'BRANCH NAME'
+          echo ${GITHUB_REF##*/}
           mkdir ${{env.TEST_PATH}}_${{env.PR_ID}}
           cd ${{env.TEST_PATH}}_${{env.PR_ID}}
           date > PR_test.txt
