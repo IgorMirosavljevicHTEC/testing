@@ -57,12 +57,13 @@ jobs:
           else
             echo 'THIS IS NOT PR EVENT'
             echo "TEST_PATH2=${{env.TEST_PATH}}_${{env.PR_ID}}: >> $GITHUB_ENV
-            echo ${{env.TEST_PATH2}}
           fi
           echo 'new env'
           echo ${{env.TEST_PATH}}
           echo 'TP var'
           echo $TEST_PATH
+          echo 'TP2'
+          echo ${{env.TEST_PATH2}}
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
