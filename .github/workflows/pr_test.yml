@@ -56,9 +56,8 @@ jobs:
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           else
             echo 'THIS IS NOT PR EVENT'
-            #echo "TEST_PATH2=${{env.TEST_PATH}}_${{env.PR_ID}}" >> $GITHUB_ENV
-            echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           fi
+          echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           echo 'new env'
           echo ${{env.TEST_PATH}}
           echo 'TP var'
