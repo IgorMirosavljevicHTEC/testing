@@ -51,6 +51,11 @@ jobs:
           echo 'old env'
           echo ${{env.TEST_PATH}}
           echo 'gh event:${{github.event_name}}'
+          echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)" >> $GITHUB_ENV
+          echo 'branch env'
+          echo ${{env.BRANCH}}
+          echo 'branch var'
+          echo $BRANCH
           if ${{github.event.name=='pull_request'}}; then
             echo 'THIS IS PR EVENT'
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
