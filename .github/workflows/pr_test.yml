@@ -57,7 +57,7 @@ jobs:
           else
             echo 'THIS IS NOT PR EVENT'
           fi
-          #echo "::set-env name=TEST_PATH::something_${{PR_ID}"
+          echo "::set-env name=TEST_PATH::something_${{env.PR_ID}}"
           echo 'new env'
           echo ${{env.TEST_PATH}}
           echo 'TP var'
