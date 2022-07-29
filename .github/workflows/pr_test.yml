@@ -51,7 +51,7 @@ jobs:
           echo 'old env'
           echo ${{env.TEST_PATH}}
           echo 'gh event:${{github.event_name}}'
-          if ${{github.event_name=='pull_request'}}; then
+          if [[$GITHUB_EVENT_NAME=='pull_request']]; then
             echo $TEST_PATH="${TEST_PATH}_${PR_ID}" >> "$GITHUB_ENV"
           fi
           echo 'new env'
