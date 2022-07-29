@@ -64,6 +64,8 @@ jobs:
           echo $TEST_PATH
           echo 'TP2'
           echo ${{env.TEST_PATH2}}
+          echo 'TP2 no env'
+          echo $TEST_PATH2
       - name: Cleanup
         if: ${{github.event.action=='closed' && github.event.pull_request.merged==true}}
         #if: ${{github.event.pull_request.merged==true}}
