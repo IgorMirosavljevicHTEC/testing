@@ -52,6 +52,8 @@ jobs:
           cat PR_test.txt
           echo 'try gh sha var'
           echo $GITHUB_SHA
+          echo 'cutdown test'
+          echo $($GITHUB_SHA | cut -c 1-6)
           git config --global user.email "compy@example.com"
           git config --global user.name "compy"
           git add .
