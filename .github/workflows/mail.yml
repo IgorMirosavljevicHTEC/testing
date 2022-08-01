@@ -14,7 +14,8 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 465
           username: gh.actions.test@gmail.com
-          password: $6nMRWntFv?@9!77
+          #password: $6nMRWntFv?@9!77
+          password: pegvwaculzxpwxqf
           subject: Github Actions job result
           to: compy6014@yahoo.com
           from: Luke Skywalker # <user@example.com>
