@@ -4,9 +4,11 @@
 name: Python application
 
 on:
-  push:
-    branches: [ main ]
-
+  #push:
+  #  branches: [ main ]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, closed]
 
 permissions:
   contents: read
