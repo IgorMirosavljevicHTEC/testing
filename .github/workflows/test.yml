@@ -72,3 +72,7 @@ jobs:
     - name: Check outputs
       run: |
         echo "Comment ID - ${{ steps.couc.outputs.comment-id }}"
+    - name: Sticky
+      uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        path: /home/runner/work/testing/testing/test.md
