@@ -77,4 +77,4 @@ jobs:
     - name: Sticky
       uses: marocchino/sticky-pull-request-comment@v2
       with:
-        path: /home/runner/work/testing/testing/test.md
+        path: ${{github.workspace}}/test.md
