@@ -77,4 +77,6 @@ jobs:
     - name: Sticky
       uses: marocchino/sticky-pull-request-comment@v2
       with:
-        path: ${{github.workspace}}/test.md
+        #path: ${{github.workspace}}/test.md
+        message:
+          ${{ steps.get-comment-body.outputs.body }}
