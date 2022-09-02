@@ -1,0 +1,27 @@
+name: Test queue
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  test_queue:
+    name: one
+    runs-on: ubuntu-latest
+    steps: 
+      name: main
+      uses: ahmadnassri/action-workflow-queue@v1
+        with:
+          github-token: ${{ secrets.GH_TEST_TOKEN }}
+          timeout: 60000
+          delay: 1000
+      name: second
+      run: |
+        ping -c 120 www.google.com
+  secon_job:
+    name: two
+    runs-on: ubuntu-latest
+    steps:
+      name: after queue
+      run:
+        echo "This is executed in queue"
+  
