@@ -16,8 +16,8 @@ jobs:
           delay: 1000
       - name: second
         run: |
-          ping -c 120 www.google.com
-  secon_job:
+          ping -c 120 127.0.0.1
+  second_job:
     name: two
     runs-on: ubuntu-latest
     steps:
