@@ -13,7 +13,7 @@ jobs:
         with:
           github-token: ${{ secrets.GH_TEST_TOKEN }}
           timeout: 600000
-          delay: 1000
+          delay: 10000
       - name: second
         run: |
           ping -c 120 127.0.0.1
