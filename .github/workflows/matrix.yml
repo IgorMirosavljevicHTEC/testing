@@ -38,7 +38,19 @@ jobs:
       - name: check
         run: |
           echo "${{matrix.model}} check"
-
+  testing_matrix2:
+    name: Matrix2
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [model1, model2, model3, model4]
+    steps:
+      - name: check
+        run: |
+          echo "${{matrix.model}} check"
+          if [${{inputs.model1}}==true];then
+            echo "model1 YES"
+          fi
 
             
     
