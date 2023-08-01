@@ -50,6 +50,8 @@ jobs:
           echo "${{matrix.model}} check"
           if ["${{inputs.model1}}"=="true"];then
             echo "model1 YES"
+          else
+            echo "model1 NO"
           fi
 
             
