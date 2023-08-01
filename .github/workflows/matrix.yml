@@ -35,8 +35,8 @@ jobs:
     steps:
       - name: check
         run: |
-          tmp = ${{matrix.model}}
-          echo $tmp
+          echo "${{matrix.model}} check"
+
 
             
     
