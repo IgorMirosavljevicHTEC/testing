@@ -1,0 +1,32 @@
+name: Matrix testing
+
+on:
+  workflow_dispatch:
+    inputs:
+      model1:
+        type: boolean
+        description: model1 desc
+        required: true
+      model2:
+        type: boolean
+        description: model2 desc
+        required: true
+      model3:
+        type: boolean
+        description: model3 desc
+        required: true
+jobs:
+  testing_manual:
+    name: Manual
+    runs-on: ubuntu-latest
+    steps:
+      - name: check input
+        run: |
+          if [ "${{ inputs.model1 }}" == "true" ]; then
+            echo "model1 YES"
+          else
+            echo "model1 NO"
+  testing_matrix:
+    name: Matrix
+    runs-on: ubuntu-latest
+    
