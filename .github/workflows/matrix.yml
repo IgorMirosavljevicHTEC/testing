@@ -105,6 +105,7 @@ jobs:
           echo "Initial EXLCUSION: $EXCLUSION"
           for value in "$excludes[@]}"
           do
+            echo $value
             EXCLUSION+=$value
             echo $EXCLUSION
           done
