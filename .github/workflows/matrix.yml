@@ -63,7 +63,7 @@ jobs:
       - name: check
         run: |
           echo "${{matrix.model}} check"
-          export TMP = ${{matrix.model}}
+          export TMP=${{matrix.model}}
           echo "TMP: $TMP"
           if [ "${{ inputs.model1}}" == "true" ]; then
             echo "${ matrix.model } YES"
