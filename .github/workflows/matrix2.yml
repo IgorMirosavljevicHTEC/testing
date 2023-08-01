@@ -1,0 +1,32 @@
+name: Matrix2
+
+on:
+  workflow_dispatch:
+    inputs:
+      model1:
+        type: boolean
+        description: model1 desc
+        required: true
+      model2:
+        type: boolean
+        description: model2 desc
+        required: true
+      model3:
+        type: boolean
+        description: model3 desc
+        required: true
+      model4:
+        type: boolean
+        description: model4 desc
+        required: true
+jobs:
+  matrix_action:
+    name: Matrix action
+    runs-on: ubuntu-latest
+    steps:
+      - name: try action
+        uses: action/check-input@v1
+        with:
+          inputs: 'true false'
+          input: ${{ github.event.inputs.env }}
+          input-name: 'model1'
