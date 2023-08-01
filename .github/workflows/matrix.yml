@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: check
         run: |
-          if [ ${{{{inputs.{matrix.model}}}}} == "true" ]; then
+          if [ "${{{{inputs.{matrix.model}}}}}" == "true" ]; then
             echo "${{matrix.model}} YES"
           else
             echo "${{matrix.model}} NO"
