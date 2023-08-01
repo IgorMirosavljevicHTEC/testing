@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: try action
-        uses: action/check-input@v1
+        uses: actions/check-input@v1
         with:
           inputs: 'true false'
           input: ${{ github.event.inputs.env }}
