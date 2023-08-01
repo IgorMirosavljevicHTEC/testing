@@ -95,12 +95,13 @@ jobs:
             excludes+=("model4")
           fi
           echo "${excludes[*]}"
-          EXCLUSION="- model:"
+          EXCLUSION="- model: "
           echo "Initial EXLCUSION: $EXCLUSION"
           for value in "${excludes[@]}"
           do
             echo $value
             EXCLUSION+=$value
+            EXCLUSION+="/n-model: "
             echo $EXCLUSION
           done
 
