@@ -15,6 +15,10 @@ on:
         type: boolean
         description: model3 desc
         required: true
+      model4:
+        type: boolean
+        description: model4 desc
+        required: true
 jobs:
   testing_manual:
     name: Manual
@@ -80,11 +84,14 @@ jobs:
           excludes=()
           if [ "${{ inputs.model1 }}" == "false" ]; then
             excludes+=("model1")
-          elif [ "${{ inputs.model2 }}" == "false" ]; then
+          fi
+          if [ "${{ inputs.model2 }}" == "false" ]; then
             excludes+=("model2")
-          elif [ "${{ inputs.model3 }}" == "false" ]; then
+          fi
+          if [ "${{ inputs.model3 }}" == "false" ]; then
             excludes+=("model3")
-          elif [ "${{ inputs.model4 }}" == "false" ]; then
+          fi
+          if [ "${{ inputs.model4 }}" == "false" ]; then
             excludes+=("model4")
           fi
           echo "${excludes[*]}"
