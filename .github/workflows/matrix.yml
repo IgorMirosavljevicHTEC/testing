@@ -95,12 +95,6 @@ jobs:
             excludes+=("model4")
           fi
           echo "${excludes[*]}"
-  set_tmp:
-    name: Set tmp excludes
-    runs-on: ubuntu-latest
-    steps:
-      - name: create tmp excludes
-        run: |
           EXCLUSION="- model:"
           echo "Initial EXLCUSION: $EXCLUSION"
           for value in "${excludes[@]}"
@@ -109,3 +103,4 @@ jobs:
             EXCLUSION+=$value
             echo $EXCLUSION
           done
+
