@@ -74,6 +74,27 @@ jobs:
             echo "${{ matrix.model }} YES"
           else
             echo "${{ matrix.model }} NO"
+          fi          
+  testing_matrix4:
+    name: Matrix4
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [model1, model2, model3, model4]
+        exclude: 
+          - model: model1
+          - model: model4
+    steps:
+      - name: check
+        run: |
+          echo "${{matrix.model}} check"
+          export TMP="inputs.${{matrix.model}}"
+          echo "TMP: $TMP"
+          echo "env.TMP: ${{ env.TMP }}"
+          if [ "$TMP" == "true" ]; then
+            echo "${{ matrix.model }} YES"
+          else
+            echo "${{ matrix.model }} NO"
           fi
   get_excludes:
     name: Get excludes
