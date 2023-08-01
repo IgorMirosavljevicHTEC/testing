@@ -29,4 +29,4 @@ jobs:
         with:
           inputs: 'true false'
           input: ${{ github.event.inputs.env }}
-          input-name: 'model1'
+          input-name: 'model2'
