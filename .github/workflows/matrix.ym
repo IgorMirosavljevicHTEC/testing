@@ -95,7 +95,7 @@ jobs:
             excludes+=("model4")
           fi
           echo "${excludes[*]}"
-  tmp_excludes:
+  set_tmp:
     name: Set tmp excludes
     runs-on: ubuntu-latest
     steps:
