@@ -103,7 +103,7 @@ jobs:
         run: |
           EXCLUSION="- model:"
           echo "Initial EXLCUSION: $EXCLUSION"
-          for value in "$excludes[@]}"
+          for value in "${excludes[@]}"
           do
             echo $value
             EXCLUSION+=$value
