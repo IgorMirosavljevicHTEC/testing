@@ -66,7 +66,6 @@ jobs:
           export TMP="inputs.${{matrix.model}}"
           echo "TMP: $TMP"
           #if [ "${{ inputs.model1}}" == "true" ]; then
-          #if [ "${{ inputs.${{ env.TMP }} }}" == "true" ]; then
           if [ "${{ env.TMP }}" == "true" ]; then
             echo "${{ matrix.model }} YES"
           else
