@@ -66,9 +66,9 @@ jobs:
           export TMP=${{matrix.model}}
           echo "TMP: $TMP"
           if [ "${{ inputs.model1}}" == "true" ]; then
-            echo "${ matrix.model } YES"
+            echo "${{ matrix.model }} YES"
           else
-            echo "${ matrix.model } NO"
+            echo "${{ matrix.model }} NO"
           fi
 
             
