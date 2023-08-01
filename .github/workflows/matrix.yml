@@ -63,7 +63,7 @@ jobs:
       - name: check
         run: |
           echo "${{matrix.model}} check"
-          if [ "${{ inputs.${ matrix.model } }}" == "true" ]; then
+          if [ "${{{{ inputs.${ matrix.model }}}}}" == "true" ]; then
             echo "${ matrix.model } YES"
           else
             echo "${ matrix.model } NO"
