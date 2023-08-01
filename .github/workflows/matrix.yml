@@ -101,7 +101,7 @@ jobs:
           do
             echo $value
             EXCLUSION+=$value
-            EXCLUSION+=$'/n-model: '
+            EXCLUSION+=$'\n-model: '
             echo $EXCLUSION
           done
 
