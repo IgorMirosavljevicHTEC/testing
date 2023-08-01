@@ -37,10 +37,6 @@ jobs:
         run: |
           tmp = ${{matrix.model}}
           echo "TMP: $tmp"
-          #if [ "${{{{inputs.{matrix.model}}}}}" == "true" ]; then
-          #if [ "${{inputs.tmp}}" == "true" ]; then
-          #  echo "${{matrix.model}} YES"
-          #else
-          #  echo "${{matrix.model}} NO"
+
             
     
