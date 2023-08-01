@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: check input
         run: |
+          echo "manual check"
           if [ "${{ inputs.model1 }}" == "true" ]; then
             echo "model1 YES"
           else
