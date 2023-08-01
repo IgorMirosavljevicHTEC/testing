@@ -87,6 +87,6 @@ jobs:
           elif [ "${{ inputs.model4 }}" == "false" ]; then
             excludes+=("model4")
           fi
-          echo "$excludes[*]"
+          echo "${excludes[*]}"
             
     
