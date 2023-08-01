@@ -29,4 +29,15 @@ jobs:
   testing_matrix:
     name: Matrix
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [model1, model2, model3, model4]
+    steps:
+      - name: check
+        run: |
+          if [ ${{{{inputs.{matrix.model}}}}} == "true" ]; then
+            echo "${{matrix.model}} YES"
+          else
+            echo "${{matrix.model}} NO"
+            
     
