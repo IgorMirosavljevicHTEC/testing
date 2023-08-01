@@ -1,3 +1,4 @@
+
 name: Matrix testing
 
 on:
@@ -79,7 +80,7 @@ jobs:
     name: Get excludes
     runs-on: ubuntu-latest
     steps:
-      - name: read inputs
+      - name: check
         run: |
           excludes=()
           if [ "${{ inputs.model1 }}" == "false" ]; then
@@ -95,6 +96,3 @@ jobs:
             excludes+=("model4")
           fi
           echo "${excludes[*]}"
-
-        
-    
