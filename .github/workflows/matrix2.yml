@@ -27,6 +27,6 @@ jobs:
       - name: try action
         uses: bitshopp/check-input@v1
         with:
-          inputs: 'true false'
+          inputs: 'model2'
           input: ${{ github.event.inputs.env }}
-          input-name: 'model2'
+          input-name: 'model1'
