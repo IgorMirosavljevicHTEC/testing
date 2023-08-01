@@ -36,7 +36,7 @@ jobs:
       - name: check
         run: |
           tmp = ${{matrix.model}}
-          echo "TMP: $tmp"
+          echo $tmp
 
             
     
