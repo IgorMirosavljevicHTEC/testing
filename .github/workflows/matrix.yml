@@ -63,8 +63,8 @@ jobs:
       - name: check
         run: |
           echo "${{matrix.model}} check"
-          tmp = ${{matrix.model}}
-          echo "TMP: $tmp"
+          TMP = ${{matrix.model}}
+          echo "TMP: $TMP"
           if [ "${{ inputs.model1}}" == "true" ]; then
             echo "${ matrix.model } YES"
           else
