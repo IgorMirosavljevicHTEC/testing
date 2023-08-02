@@ -1,7 +1,7 @@
 name: MIOPEN database tuning
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       rocm_release:
         type: string
