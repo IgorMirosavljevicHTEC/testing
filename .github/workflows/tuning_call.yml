@@ -10,7 +10,7 @@ jobs:
       rocm_release: ${{ github.event.inputs.rocm_release || '5.6' }}
       benchmark_utils_repo: ${{ github.event.inputs.benchmark_utils_repo || 'ROCmSoftwarePlatform/migraphx-benchmark-utils' }}
       miopen_db_repo: ${{ github.event.inputs.miopen_db_repo || 'ROCmSoftwarePlatform/migraphx-benchmark-utils/miopen-dbs/rocm5.6' }}
-      torchvision-resnet50: ${{ github.event.inputs.torchvision-resnet50 == 'true' }}
+      torchvision-resnet50: ${{ github.event.inputs.torchvision-resnet50 || 'true' }}
       torchvision-resnet50_fp16: ${{ github.event.inputs.torchvision-resnet50_fp16 == 'true' }}
       torchvision-densenet121: ${{ github.event.inputs.torchvision-densenet121 == 'true' }}
       torchvision-densenet121_fp16: ${{ github.event.inputs.torchvision-densenet121_fp16 == 'true' }}
