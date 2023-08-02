@@ -2,6 +2,32 @@ name: MIOPEN database tuning caller
 
 on:
   workflow_dispatch:
+    inputs:
+      rocm_release:
+        type: string
+        description: ROCm release version
+        required: true
+        default: "5.6"
+      miopen_db_repo:
+        type: string
+        description: MIOpen database repository
+        default: "ROCmSoftwarePlatform/migraphx-benchmark-utils/miopen-dbs/rocm5.6"
+        required: false
+      benchmark_utils_repo:
+        type: string
+        description: Repository where benchmark utils are stored
+        default: "ROCmSoftwarePlatform/migraphx-benchmark-utils"
+        required: true
+      torchvision-resnet50:
+        type: boolean
+        description: torchvision-resnet50
+        default: true
+        required: true
+      torchvision-resnet50_fp16:
+        type: boolean
+        description: torchvision-resnet50_fp16
+        default: true
+        required: true
   
 jobs:
   release:
