@@ -178,5 +178,7 @@ jobs:
         run: |
           echo "Reading user inputs..."
           echo "User inputs saved..."
+          echo "torchvision-resnet50: ${{ inputs.torchvision-resnet50 }}"
+          echo "torchvision-resnet50_fp16: ${{ inputs.torchvision-resnet50_fp16 }}"
           echo "Executing workflow update script..."
     
