@@ -5,7 +5,7 @@ on:
   
 jobs:
   release:
-    uses: .github/workflows/tuning.yml@main
+    uses: IgorMirosavljevicHTEC/testing/tree/main/.github/workflows/tuning.yml@main
     with:
       rocm_release: ${{ github.event.inputs.rocm_release || '5.6' }}
       benchmark_utils_repo: ${{ github.event.inputs.benchmark_utils_repo || 'ROCmSoftwarePlatform/migraphx-benchmark-utils' }}
