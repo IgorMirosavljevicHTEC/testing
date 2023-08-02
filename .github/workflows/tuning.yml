@@ -163,10 +163,6 @@ on:
         description: Loop model until it passes tuning
         default: true
         required: true
-    secrets:
-      gh_token:
-        description: 'Github Access Token'
-        required: true
  
 env:
   ROCM_VERSION: rocm-${{ inputs.rocm_release }}
