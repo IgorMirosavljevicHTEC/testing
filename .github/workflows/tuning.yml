@@ -1,0 +1,186 @@
+name: MIOPEN database tuning
+
+on:
+  workflow_call:
+    inputs:
+      rocm_release:
+        type: string
+        description: ROCm release version
+        required: true
+        default: "5.6"
+      miopen_db_repo:
+        type: string
+        description: MIOpen database repository
+        default: "ROCmSoftwarePlatform/migraphx-benchmark-utils/miopen-dbs/rocm5.6"
+        required: false
+      benchmark_utils_repo:
+        type: string
+        description: Repository where benchmark utils are stored
+        default: "ROCmSoftwarePlatform/migraphx-benchmark-utils"
+        required: true
+      torchvision-resnet50:
+        type: boolean
+        description: torchvision-resnet50
+        default: true
+        required: true
+      torchvision-resnet50_fp16:
+        type: boolean
+        description: torchvision-resnet50_fp16
+        default: true
+        required: true
+      torchvision-densenet121:
+        type: boolean
+        description: torchvision-densenet121
+        default: true
+        required: true
+      torchvision-densenet121_fp16:
+        type: boolean
+        description: torchvision-densenet121_fp16
+        default: true
+        required: true
+      torchvision-inceptionv3:
+        type: boolean
+        description: torchvision-inceptionv3
+        default: true
+        required: true
+      torchvision-inceptionv3_fp16:
+        type: boolean
+        description: torchvision-inceptionv3_fp16
+        default: true
+        required: true
+      cadene-inceptionv4:
+        type: boolean
+        description: cadene-inceptionv4
+        default: true
+        required: true
+      cadene-resnext64x4:
+        type: boolean
+        description: cadene-resnext64x4
+        default: true
+        required: true
+      slim-mobilenet:
+        type: boolean
+        description: slim-mobilenet
+        default: true
+        required: true
+      slim-nasnetalarge:
+        type: boolean
+        description: slim-nasnetalarge
+        default: true
+        required: true
+      slim-resnet50v2:
+        type: boolean
+        description: slim-resnet50v2
+        default: true
+        required: true
+      bert-mrpc-onnx:
+        type: boolean
+        description: bert-mrpc-onnx
+        default: true
+        required: true
+      bert-mrpc-tf:
+        type: boolean
+        description: bert-mrpc-tf
+        default: true
+        required: true
+      pytorch-examples-wlang-gru:
+        type: boolean
+        description: pytorch-examples-wlang-gru
+        default: true
+        required: true
+      pytorch-examples-wlang-lstm:
+        type: boolean
+        description: pytorch-examples-wlang-lstm
+        default: true
+        required: true
+      torchvision-resnet50_1:
+        type: boolean
+        description: torchvision-resnet50_1
+        default: true
+        required: true
+      torchvision-inceptionv3_1:
+        type: boolean
+        description: torchvision-inceptionv3_1
+        default: true
+        required: true
+      cadene-dpn92_1:
+        type: boolean
+        description: cadene-dpn92_1
+        default: true
+        required: true
+      cadene-resnext101_1:
+        type: boolean
+        description: cadene-resnext101_1
+        default: true
+        required: true
+      slim-vgg16_1:
+        type: boolean
+        description: slim-vgg16_1
+        default: true
+        required: true
+      slim-mobilenet_1:
+        type: boolean
+        description: slim-mobilenet_1
+        default: true
+        required: true
+      slim-inceptionv4_1:
+        type: boolean
+        description: slim-inceptionv4_1
+        default: true
+        required: true
+      onnx-taau-downsample:
+        type: boolean
+        description: onnx-taau-downsample
+        default: true
+        required: true
+      dlrm-criteoterabyte:
+        type: boolean
+        description: dlrm-criteoterabyte
+        default: true
+        required: true
+      dlrm-criteoterabyte_fp16:
+        type: boolean
+        description: dlrm-criteoterabyte_fp16
+        default: true
+        required: true
+      agentmodel:
+        type: boolean
+        description: agentmodel
+        default: true
+        required: true
+      unet_fp16:
+        type: boolean
+        description: unet_fp16
+        default: true
+        required: true
+      save_db:
+        type: boolean
+        description: Save new version of tuning database
+        default: true
+        required: true
+      loop:
+        type: boolean
+        description: Loop model until it passes tuning
+        default: true
+        required: true
+    secrets:
+      gh_token:
+        description: 'Github Access Token'
+        required: true
+ 
+env:
+  ROCM_VERSION: rocm-${{ inputs.rocm_release }}
+  MIOPEN_PATH: miopen-databases
+  SCRIPT_PATH: rocm-migraphx
+
+jobs:
+  get_inputs:
+    name: Get inputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read inputs
+        run: |
+          echo "Reading user inputs..."
+          echo "User inputs saved..."
+          echo "Executing workflow update script..."
+    
