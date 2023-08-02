@@ -1,4 +1,4 @@
-name: MIOPEN database tuning
+name: MIOPEN database tuning caller
 
 on:
   workflow_dispatch:
