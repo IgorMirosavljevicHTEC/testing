@@ -15,8 +15,10 @@ jobs:
           set -e
           set -x
           branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
-          echo "BRANCH_CONFIG: $branch_config"
-          if [ "$branch_config" !="" ]; then
+        
+          if [ -z "$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt) ]; then
+            echo "No special flags set for branch ${{ github.event.pull_request.head.ref }}"
+          else
             IFS=';' read -ra config <<< "$branch_config"
             flags=""
             for val in "${config[@]:1}"; do
@@ -24,8 +26,6 @@ jobs:
             done
             echo "HERE: $flags"
             echo "FLAGS=$flags" >> $GITHUB_ENV
-          else
-            echo "No special flags set for branch ${{ github.event.pull_request.head.ref }}"
           fi
       - name: Read env
         run: |
