@@ -22,5 +22,5 @@ jobs:
           echo "Branch: ${{ github.event.pull_request.head.ref }}"
           echo "Checking env..."
           env
-          echo "DONE"
+          echo "DONE!!!"
         
