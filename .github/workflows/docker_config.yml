@@ -13,7 +13,7 @@ jobs:
       - name: Load config
         run: |
           branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
-          if [[ -n "branch_config" ]]; then
+          if [[ -n "$branch_config" ]]; then
             IFS=';' read -ra config <<< "$branch_config"
             flags=""
             for val in "${config[@]:1}"; do
