@@ -1,0 +1,26 @@
+name: Get env
+
+on:
+  pull_request:
+
+jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Load config
+        run: |
+          branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
+          IFS=';' read -ra config <<< "$branch_config"
+          for val in "{cpnfig[@]:1}" do
+            echo "$val" >> $GITHUB_ENV
+          done
+      - name: Read env
+        run: |
+          echo "Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Checking env..."
+          env
+          echo "DONE"
+        
