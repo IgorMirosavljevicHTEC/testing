@@ -19,8 +19,8 @@ jobs:
           #  echo "Variables found: "
           #  echo "$val" >> $GITHUB_ENV
           #done
-          for val in "${config[@]}"; do
-            flags+=("-e $val")
+          for val in "${config[@]:1}"; do
+            flags+=(" -e $val")
           done
           echo "HERE: $flags"
           echo "FLAGS=$flags" >> $GITHUB_ENV
