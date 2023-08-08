@@ -1,8 +1,7 @@
 name: Docker config
 
 on:
-  pull_request:
-    types: [opened, synchronize, closed]
+  workflow_call:
 
 jobs:
   set-env:
