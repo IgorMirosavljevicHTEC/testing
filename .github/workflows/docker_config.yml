@@ -15,10 +15,6 @@ jobs:
         run: |
           branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
           IFS=';' read -ra config <<< "$branch_config"
-          #for val in "${config[@]:1}"; do
-          #  echo "Variables found: "
-          #  echo "$val" >> $GITHUB_ENV
-          #done
           flags=""
           for val in "${config[@]:1}"; do
             flags="$flags -e $val"
