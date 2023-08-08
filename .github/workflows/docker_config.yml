@@ -14,9 +14,9 @@ jobs:
         run: |
           set -e
           set -x
-          branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
+          branch_config=$(grep -E "${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
         
-          if [ -z "$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)" ]; then
+          if [ -z "$(grep -E "${{ github.event.pull_request.head.ref }};" branch_env_config.txt)" ]; then
             echo "No special flags set for branch ${{ github.event.pull_request.head.ref }}"
           else
             IFS=';' read -ra config <<< "$branch_config"
