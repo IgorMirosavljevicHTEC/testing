@@ -2,6 +2,7 @@ name: Get env
 
 on:
   pull_request:
+    types: [opened, synchronize, closed]
 
 jobs:
   set-env:
