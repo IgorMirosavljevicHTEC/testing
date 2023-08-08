@@ -23,7 +23,7 @@ jobs:
             echo "HERE: $flags"
             echo "FLAGS=$flags" >> $GITHUB_ENV
           else
-            echo "No special flags for ${{ github.event.pull_request.head.ref }}"
+            echo "No special flags set for branch ${{ github.event.pull_request.head.ref }}"
           fi
       - name: Read env
         run: |
