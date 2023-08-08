@@ -20,7 +20,7 @@ jobs:
           #  echo "$val" >> $GITHUB_ENV
           #done
           for val in "${config[@]:1}"; do
-            FLAGS+=("-e" "$val")
+            FLAGS+=("-e $val")
           done
           echo "HERE: $FLAGS"
           echo "$FLAGS" >> $GITHUB_ENV
