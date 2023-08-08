@@ -1,4 +1,4 @@
-name: Docker config
+honame: Docker config
 
 on:
   pull_request:
@@ -27,4 +27,5 @@ jobs:
       - name: Read env
         run: |
           echo "Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "FLAGS: ${{ env.FLAGS }}"
           echo "docker run -e TARGET=gpu ${{ env.FLAGS }} -e TEST=all --device=/drv/dri  -v /src/data:/data --workdir /data docker_image:tag" 
