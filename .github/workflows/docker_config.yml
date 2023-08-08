@@ -13,17 +13,17 @@ jobs:
       - name: Load config
         run: |
           branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
-          IFS=';' read -ra config <<< "$branch_config"
-          flags=""
-          for val in "${config[@]:1}"; do
-            if [ -z "$val"]; then
-              echo "No special flags for ${{ github.event.pull_request.head.ref }}"
-            else
+          if [[ -n "branch_config" ]]; then
+            IFS=';' read -ra config <<< "$branch_config"
+            flags=""
+            for val in "${config[@]:1}"; do
               flags="$flags -e $val"
-            fi
-          done
-          echo "HERE: $flags"
-          echo "FLAGS=$flags" >> $GITHUB_ENV
+            done
+            echo "HERE: $flags"
+            echo "FLAGS=$flags" >> $GITHUB_ENV
+          else
+            echo "No special flags for ${{ github.event.pull_request.head.ref }}"
+          fi
       - name: Read env
         run: |
           echo "Branch: ${{ github.event.pull_request.head.ref }}"
