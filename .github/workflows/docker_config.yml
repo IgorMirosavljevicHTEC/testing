@@ -1,4 +1,4 @@
-honame: Docker config
+name: Docker config
 
 on:
   pull_request:
