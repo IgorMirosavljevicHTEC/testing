@@ -20,10 +20,10 @@ jobs:
           #  echo "$val" >> $GITHUB_ENV
           #done
           for val in "${config[@]:1}"; do
-            FLAGS+=("-e $val")
+            flags+=("-e $val")
           done
-          echo "HERE: $FLAGS"
-          echo "$FLAGS" >> $GITHUB_ENV
+          echo "HERE: $flags"
+          echo "FLAGS=$flags" >> $GITHUB_ENV
       - name: Read env
         run: |
           echo "Branch: ${{ github.event.pull_request.head.ref }}"
