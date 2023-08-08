@@ -1,0 +1,29 @@
+name: Docker config
+
+on:
+  pull_request:
+    types: [opened, synchronize, closed]
+
+jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Load config
+        run: |
+          branch_config=$(grep -E "^${{ github.event.pull_request.head.ref }};" branch_env_config.txt)
+          IFS=';' read -ra config <<< "$branch_config"
+          #for val in "${config[@]:1}"; do
+          #  echo "Variables found: "
+          #  echo "$val" >> $GITHUB_ENV
+          #done
+          for val in "${config[@]:1}"; do
+            FLAGS+=("-e" "$val")
+          done
+          echo "$FLAGS" >> $GITHUB_ENV
+      - name: Read env
+        run: |
+          echo "Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "docker run -e TARGET=gpu ${{ env.FLAGS }} -e TEST=all --device=/drv/dri  -v /src/data:/data --workdir /data docker_image:tag" 
