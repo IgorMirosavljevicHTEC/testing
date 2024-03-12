@@ -80,4 +80,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TEST_TOKEN }}
         #message:
         #  ${{ steps.get-comment-body.outputs.body }}
-        path: ${{github.workspace}}/test.md
+        path: ${{github.workspace}}/results.md
