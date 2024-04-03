@@ -9,12 +9,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4.1.1
+    - name: Get date
+      id: current_date
+      run: echo "CURRENT_DATE=$(date +'%m-%d-%Y')" >> $GITHUB_ENV
     - name: Create issue
       uses: dacbd/create-issue-action@v2.0.0
       id: create_issue
       with:
         token: ${{ secrets.GH_TEST_TOKEN }}
-        title: WEEKLY TEST
+        title: WEEKLY TEST ${{ env.CURRENT_DATE }}
     - name: Get issue number
       run: echo "Issue Number is ${{ steps.create_issue.outputs.number }}"
     - name: Post comment
@@ -22,7 +25,6 @@ jobs:
       with:
         token:  ${{ secrets.GH_TEST_TOKEN }}
         issue-number: ${{ steps.create_issue.outputs.number }}
-        #body: ${{ steps.get-comment-body.outputs.body }}
         body-path: /home/runner/work/testing/testing/test.md
 
       
