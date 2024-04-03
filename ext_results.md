@@ -1,7 +1,36 @@
 |model|default<br />rate|extended<br />rate|perf<br />diff|time<br />diff|
 |----|:----:|:----:|:----:|:----:|
-|torchvision-resnet50|22.1305|21.0699|1.069 :white_check_mark:|27m28s :red_circle:|
-|torchvision-resnet50_fp16|22.1305|21.0699|1.069 :red_circle:|27m28s :white_check_mark:|
-|torchvision-densenet121|22.1305|21.0699|1.069 :green_circle:|27m28s :red_circle:|
-|torchvision-densenet121_fp16|22.1305|21.0699|1.069|27m28s|
-|torchvision-inceptionv3|22.1305|21.0699|1.069|27m28s|
+|torchvision-resnet50|21.4707|21.0699|27m28s|
+|torchvision-resnet50_fp16|9.405|9.05957|19m18s|
+|torchvision-densenet121|13.3029|13.1682|22m57s|
+|torchvision-densenet121_fp16|7.8712|7.69926|15m35s|
+|torchvision-inceptionv3|19.3873|19.2296|11m5s|
+|torchvision-inceptionv3_fp16|12.2936|11.9804|12m32s|
+|cadene-inceptionv4|20.7222|19.9217|7m50s|
+|cadene-resnext64x4|21.7808|21.0924|12m35s|
+|slim-mobilenet|9.17152|7.68672|25m1s|
+|slim-nasnetalarge|362.792|319.387|114m7s|
+|slim-resnet50v2|22.4708|21.7051|21m31s|
+|bert-mrpc-onnx|7.66774|7.19975|2m5s|
+|bert-mrpc-tf|2.12468|2.39772|1m36s|
+|pytorch-examples-wlang-gru|1.9022|2.25884|0m52s|
+|pytorch-examples-wlang-lstm|2.10547|2.57344|0m46s|
+|torchvision-resnet50_1|1.36961|1.27107|2m35s|
+|cadene-dpn92_1|2.84821|2.85613|6m48s|
+|cadene-resnext101_1|2.75558|2.68467|3m13s|
+|onnx-taau-downsample|2.85933|2.83414|2m7s|
+|dlrm-criteoterabyte|30.0065|28.1084|85m21s|
+|dlrm-criteoterabyte_fp16|17.1232|16.8194|57m12s|
+|agentmodel|0.138447|0.161597|0m20s|
+|unet_fp16|33.9634|31.8342|21m37s|
+|resnet50v1_fp16|1.03229|0.979984|8m57s|
+|resnet50v1_int8|1.2569|1.02615|23m29s|
+|bert_base_cased_fp16|64.1911|61.6807|17m29s|
+|bert_large_uncased_fp16|106.162|100.319|12m42s|
+|bert_large_fp16|5.10241|4.70123|7m50s|
+|distilgpt2_fp16|8.03759|7.86348|4m31s|
+|yolov5s|1.90073|1.86153|1m53s|
+|tinyllama|22.3574|19.357|3m4s|
+|vicuna-fastchat|5.41466|5.39066|1m29s|
+|whisper-tiny-encoder|2.4532|2.31435|2m20s|
+|whisper-tiny-decoder|2.38854|2.12036|3m56s|
