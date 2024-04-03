@@ -29,7 +29,8 @@ jobs:
       with:
         token:  ${{ secrets.GH_TEST_TOKEN }}
         issue-number: ${{ steps.create_issue.outputs.number }}
-        body: ${{ steps.get-comment-body.outputs.body }}
+        #body: ${{ steps.get-comment-body.outputs.body }}
+        body-file: /home/runner/work/testing/testing/test.md
 
       
     
