@@ -18,6 +18,7 @@ jobs:
       with:
         token: ${{ secrets.GH_TEST_TOKEN }}
         title: WEEKLY TEST ${{ env.NOW }}
+        body: Extended performance test with "exhaustive-tune" and "MIGRAPHX_MLIR_USE_SPECIFIC_OPS" set
     - name: Get issue number
       run: echo "Issue Number is ${{ steps.create_issue.outputs.number }}"
     - name: Post comment
