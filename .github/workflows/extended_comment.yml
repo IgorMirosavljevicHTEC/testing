@@ -1,3 +1,35 @@
 name: Ext comment test
 
 on: 
+  workflow_dispatch:
+
+jobs:
+  new_issue_comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+    - name: Create issue
+      uses: dacbd/create-issue-action@v2.0.0
+      id: create_issue
+      with:
+        token: ${{ secrets.GH_TEST_TOKEN }}
+        title: WEEKLY TEST
+    - name: Get issue number
+      run: echo "Issue Number is ${{ steps.create_issue.outputs.number }}"
+    - id: get-comment-body
+      run: |
+          body="$(cat /home/runner/work/testing/testing/test.md)"
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo "::set-output name=body::$body"
+    - name: Post comment
+      uses: peter-evans/create-or-update-comment@v2.0.0
+      with:
+        token:  ${{ secrets.GH_TEST_TOKEN }}
+        issue-number: ${{ steps.create_issue.outputs.number }}
+        body: ${{ steps.get-comment-body.outputs.body }}
+
+      
+    
