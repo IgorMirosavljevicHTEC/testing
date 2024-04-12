@@ -11,7 +11,7 @@ jobs:
         run: |
           echo "This is runner $RUNNER_NAME"
           echo "========"
-          echo $TEST_ENV
+          echo $TEST_VAR
           echo "======="
           env
           sleep 120
