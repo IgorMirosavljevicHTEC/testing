@@ -10,6 +10,6 @@ jobs:
       - name: ENV
         run: |
           echo "This is runner $RUNNER_NAME"
-          echo "List ENV"
-          env
+          echo "========"
+          echo $TEST_ENV
           sleep 120
