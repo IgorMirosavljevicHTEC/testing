@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: ENV
         run: |
-          echo "This is runner $env:RUNNER_NAME"
+          echo "1.This is runner $env:RUNNER_NAME"
+          echo "2.This is runner $RUNNER_NAME"
           echo "List ENV"
           env
+          wait 120
