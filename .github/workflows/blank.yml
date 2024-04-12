@@ -1,0 +1,14 @@
+name: runner env
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get-env:
+    runs-on: self-hosted
+    steps:
+      - name: ENV
+        run: |
+          echo "This is runner $env:RUNNER_NAME"
+          echo "List ENV"
+          env
