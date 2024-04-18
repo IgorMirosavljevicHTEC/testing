@@ -10,6 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
+      
+      - name: get_date
+        run: echo todays_date="$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+ 
+      - name: extract_sha1 
+        run: echo rocmlirsha="$(git ls-remote https://github.com/ROCm/rocMLIR.git develop | awk '{print $1}')" >> $GITHUB_ENV
+      
       - name: Update
         run: |
           pwd
@@ -21,7 +28,7 @@ jobs:
       - name: Make changes to pull request
         uses: peter-evans/create-pull-request@v6.0.4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TEST_TOKEN }}
           commit-message: Update rocMLIR main ${{ env.rocmlirsha }}
           committer: Github <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
@@ -46,5 +53,5 @@ jobs:
           reviewers: |
             TedThemistokleous
           draft: false
-          base: develop
+          base: main
           
