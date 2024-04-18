@@ -48,10 +48,6 @@ jobs:
             dependencies
             automated 
             skip bot checks
-          assignees: | 
-            TedThemistokleous
-          reviewers: |
-            TedThemistokleous
           draft: false
           base: main
           
