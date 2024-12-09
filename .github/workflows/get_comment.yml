@@ -2,9 +2,16 @@ name: Get comment info
 on:
   issue_comment:
     types: [created, edited]
+  commit_comment:
+    types: [created, edited]
+  pull_request_review_comment:
+    types: [created, edited]
+  pull_request_review:
+    types: [created, edited]
+
 jobs:
  get_info:
-   name: Get issue comment info
+   name: Get comment info
    runs-on: ubuntu-latest
    if: contains(github.event.comment.body, '!test')
 
