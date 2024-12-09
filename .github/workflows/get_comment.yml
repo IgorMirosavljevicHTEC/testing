@@ -1,0 +1,16 @@
+name: Get comment info
+on:
+  issue_comment:
+    types: [created, edited]
+jobs:
+ get_info:
+   name: Get issue comment info
+   runs-on: ubuntu-latest
+   if: contains(github.event.comment.body, '!test')
+
+   steps:
+     - name: get_info
+       run: |
+         echo '${{ toJson(github.event.comment) }}' >> comment.json
+         cat comment.json
+         
