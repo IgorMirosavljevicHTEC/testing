@@ -1,0 +1,17 @@
+name: new_wf
+
+on:
+  issue_comment:
+    types: [created, edited]
+  workflow_dispatch:
+
+jobs:
+  test_job:
+    runs-on: self-hosted
+    steps:
+      - name: test
+        if: contains(github.event.comment.body, '!test'
+        run: |
+          echo "Start"
+          echo "Executing workflow"
+          
